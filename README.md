@@ -87,9 +87,10 @@ $$L = (\mathbf{r}_{SC} - \mathbf{r}_{LV}) \cdot \mathbf{u}$$
 
 $$F =
 \begin{cases}
-k (L_{free} - L), & L < L_{free} \ \text{и} \ L < L_{end}, \
+k (L_{free} - L), & L < L_{free} \ \text{и} \ L < L_{end}, \\
 0, & \text{иначе}.
 \end{cases}$$
+
 
 
 Сила прикладывается вдоль оси `u`:
@@ -99,7 +100,7 @@ k (L_{free} - L), & L < L_{free} \ \text{и} \ L < L_{end}, \
 
 Полный вектор состояния:
 
-$$x = [\mathbf{r}*{LV}, \mathbf{v}*{LV}, \mathbf{r}*{SC}, \mathbf{v}*{SC}] \in \mathbb{R}^{12}$$
+$$x = [\mathbf{r}_{LV}, \mathbf{v}_{LV}, \mathbf{r}_{SC}, \mathbf{v}_{SC}] \in \mathbb{R}^{12}$$
 
 
 Система интегрируется численно с помощью `ode45`.
