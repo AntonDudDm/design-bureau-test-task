@@ -14,7 +14,7 @@ function [t, X, R] = simulate_sep(t, x0, P)
   opts = odeset("RelTol", 1e-9, "AbsTol", 1e-9);
 
   % Integrate with adaptive solver, then evaluate on exact grid t
-  [t, X] = ode45(@(tt,xx) sde_of_motion(tt, xx, P), t, x0, opts);
+  [t, X] = ode45(@(tt,xx) rhs_sep(tt, xx, P), t, x0, opts);
 
 
   r_lv = X(:, 1:3); v_lv = X(:, 4:6);

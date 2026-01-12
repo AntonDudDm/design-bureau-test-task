@@ -44,6 +44,9 @@ outfile = fullfile(outdir, "results.csv");
 % ==============================
 % RUN
 % ==============================
+
+tic;   % <<< START TIMER
+
 if ~exist(outdir, "dir"), mkdir(outdir); end
 
 % Convert elements to ECI state at t=0
@@ -73,6 +76,11 @@ t = (t0:dt:tf)';
 export_csv(outfile, t, X, R);
 fprintf("Saved: %s\n", outfile);
 
+elapsed_time = toc;   % <<< STOP TIMER
+fprintf("Total execution time: %.6f s\n", elapsed_time);
+
 % Plot results
-postprocess(t, X, R, outdir);
+postprocess(t, X, R, outdir, P);
+
+
 

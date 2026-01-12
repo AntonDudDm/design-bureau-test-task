@@ -3,6 +3,6 @@ function export_csv(filename, t, X, R)
   % time |
   % r_lv(3) v_lv(3) r_sc(3) v_sc(3) |
   % d vrel F L
-  M = [t, X, R.d, R.vrel, R.F, R.L];
+  M = [t, X, R.d, R.vrel, R.F];
   dlmwrite(filename, M, "delimiter", ",", "precision", 15);
 end

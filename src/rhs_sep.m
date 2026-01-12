@@ -1,4 +1,4 @@
-function dx = sde_of_motion(~, x, P)
+function dx = rhs_sep(~, x, P)
   % x = [r_lv(3); v_lv(3); r_sc(3); v_sc(3)]
   r_lv = x(1:3);
   v_lv = x(4:6);
