@@ -5,6 +5,7 @@ function gui_app()
   %   1) Run simulation  - computes trajectories and saves CSV
   %   2) Show plots      - calls postprocess for the last run
   %   3) Run tests       - runs tests/run_tests.m
+  %   4) Show orbit      - runs src/plot_orbit_eci_from_elements.m
   %
   % Usage:
   %   >> gui_app
@@ -32,7 +33,9 @@ function gui_app()
              "NumberTitle", "off", ...
              "MenuBar", "none", ...
              "ToolBar", "none", ...
-             "Position", [200 120 560 650]);
+             "Position", [200 120 560 700]);
+
+  set(f, "HandleVisibility", "callback");
 
   movegui(f, "center");
 
@@ -50,9 +53,9 @@ function gui_app()
   % --- Orbit parameters ---
   uicontrol(f, "Style", "text", "String", "Параметры орбиты (ECI / J2000)", ...
             "FontWeight", "bold", "HorizontalAlignment", "left", ...
-            "Position", [20 620 480 20]);
+            "Position", [20 670 480 20]);
 
-  y = 590;
+  y = 640;
   h_a   = addField(y, "a, км (большая полуось)", "6700"); y -= 30;
   h_e   = addField(y, "e (эксцентриситет)", "0.003"); y -= 30;
   h_i   = addField(y, "i, град (наклонение)", "80"); y -= 30;
@@ -87,21 +90,26 @@ function gui_app()
   h_status = uicontrol(f, "Style", "text", ...
                        "String", "Готово. Задайте параметры и нажмите «Начать расчёт».", ...
                        "HorizontalAlignment", "left", ...
-                       "Position", [20 60 480 30]);
+                       "Position", [20 100 480 30]);
 
   % --- Buttons ---
   uicontrol(f, "Style", "pushbutton", "String", "Начать расчёт", ...
             "FontWeight", "bold", ...
-            "Position", [20 20 150 35], ...
+            "Position", [20 60 150 35], ...
             "Callback", @onRun);
 
   uicontrol(f, "Style", "pushbutton", "String", "Вывести графики", ...
-            "Position", [190 20 150 35], ...
+            "Position", [190 60 150 35], ...
             "Callback", @onPlots);
 
   uicontrol(f, "Style", "pushbutton", "String", "Тестирование", ...
-            "Position", [360 20 140 35], ...
+            "Position", [360 60 140 35], ...
             "Callback", @onTests);
+
+  uicontrol(f, "Style", "pushbutton", ...
+          "String", "Показать орбиту (ECI)", ...
+          "Position", [20 20 200 36], ...
+          "Callback", @onShowOrbit);
 
   % Store initial state
   setappdata(f, "state", state);
@@ -227,5 +235,32 @@ function gui_app()
       disp(err);
     end
   end
+
+  function onShowOrbit(~, ~)
+    try
+      % Read elements from GUI
+      a  = str2double(get(h_a,  "String")) * 1e3;  % km -> m
+      e  = str2double(get(h_e,  "String"));
+      i  = deg2rad(str2double(get(h_i,  "String")));
+      Om = deg2rad(str2double(get(h_Om, "String")));
+      w  = deg2rad(str2double(get(h_w,  "String")));
+      M0 = deg2rad(str2double(get(h_M0, "String")));
+
+      plot_orbit_eci_from_elements(a, e, i, Om, w, M0);
+
+      set(h_status, "String", ...
+          "Построена кеплерова орбита в ECI (вращение мышью).");
+
+    catch err
+      set(h_status, "String", ["Ошибка построения орбиты: " err.message]);
+      disp(err);
+    end
+  end
+
+
 end
+
+
+
+
 

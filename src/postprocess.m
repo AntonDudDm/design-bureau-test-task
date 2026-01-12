@@ -72,7 +72,7 @@ function postprocess(t, X, R, outdir, P)
   hold on;
   plot3(r_rel(1,1), r_rel(1,2), r_rel(1,3), "go", "MarkerSize", 6, "MarkerFaceColor", "g");
   plot3(r_rel(end,1), r_rel(end,2), r_rel(end,3), "ro", "MarkerSize", 6, "MarkerFaceColor", "r");
-  legend("r_{SC}-r_{LV}", "start", "end", "Location", "best");
+  legend("r_{SC}-r_{LV}", "start", "end", "Location", "northeast");
 
 
   % ----------------------------
@@ -91,7 +91,7 @@ function postprocess(t, X, R, outdir, P)
   grid on; axis equal;
   xlabel("x_{CM}, m"); ylabel("y_{CM}, m"); zlabel("z_{CM}, m");
   title("Trajectories in Center-of-Mass frame");
-  legend("LV - r_{CM}", "SC - r_{CM}", "Location", "best");
+  legend("LV - r_{CM}", "SC - r_{CM}", "Location", "northeast");
   set(gcf, "Name", "Trajectories in Center-of-Mass frame", "NumberTitle", "off");
 
 

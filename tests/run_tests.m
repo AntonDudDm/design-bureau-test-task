@@ -8,11 +8,9 @@ function run_tests()
   test_momentum_conservation_no_gravity();
 
   fprintf("ALL TESTS PASSED\n");
+
+  plot_orbit_eci();
+
 end
 
-function assert_close(val, ref, tol, msg)
-  if any(abs(val - ref) > tol)
-    error("TEST FAILED: %s | max err = %.3e (tol %.3e)", msg, max(abs(val-ref)), tol);
-  end
-end
 
