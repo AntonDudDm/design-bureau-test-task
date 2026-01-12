@@ -332,8 +332,7 @@ $$\mathbf{v}_{PQW} =
 
 
 $$\mathbf{Q}_{PQW \to ECI}
-=
-\mathbf{R}_3(\Omega)\,
+=\mathbf{R}_3(\Omega)\,
 \mathbf{R}_1(i)\,
 \mathbf{R}_3(\omega)$$
 
