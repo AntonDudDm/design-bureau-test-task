@@ -67,12 +67,12 @@ x0 = [r_lv0; v_lv0; r_sc0; v_sc0];
 t = (t0:dt:tf)';
 
 % Simulate
-#[t, X, R] = simulate_sep(t, x0, P);
+[t, X, R] = simulate_sep(t, x0, P);
 
 % Export CSV
-#export_csv(outfile, t, X, R);
-#fprintf("Saved: %s\n", outfile);
+export_csv(outfile, t, X, R);
+fprintf("Saved: %s\n", outfile);
 
 % Plot results
-#postprocess(t, X, R, outdir);
+postprocess(t, X, R, outdir);
 
