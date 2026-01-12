@@ -169,7 +169,7 @@ $$v_{rel}(t) = \|\mathbf{v}_{SC}(t) - \mathbf{v}_{LV}(t)\|, \quad [v_{rel}]=\tex
 
 Геометрический смысл кеплеровых элементов иллюстрируется на рисунке ниже.
 
-![Кеплеровы элементы орбиты](images/orbit.png)
+![Кеплеровы элементы орбиты](images/Orbit.png)
 
 *Рисунок 2 — Геометрическая интерпретация кеплеровых элементов орбиты в инерциальной
 системе координат.*
@@ -292,13 +292,14 @@ $$\mathbf{r} = \begin{bmatrix}
 0
 \end{bmatrix}$$
 
+
 Вектор скорости в системе **PQW** имеет вид:
 
 
 $$\mathbf{v}_{PQW} =
 \frac{\sqrt{\mu}}{p}
 \begin{bmatrix}
-- \sin \nu \\
+-\sin \nu \\
 e + \cos \nu \\
 0
 \end{bmatrix}$$
@@ -311,7 +312,7 @@ e + \cos \nu \\
 $$\mathbf{v}_{PQW} =
 \frac{\sqrt{\mu a}}{r}
 \begin{bmatrix}
-- \sin E \\
+-\sin E \\
 \sqrt{1 - e^2} \cos E \\
 0
 \end{bmatrix}$$
