@@ -287,7 +287,7 @@ $$\mathbf{r} = \begin{bmatrix}
 \quad
 
 \mathbf{\theta} =\begin{bmatrix}
-- \sin \nu \\
+-\sin \nu \\
 \cos \nu \\
 0
 \end{bmatrix}$$
