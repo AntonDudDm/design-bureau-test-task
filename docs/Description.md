@@ -51,8 +51,8 @@
 ### 2.3. Уравнения движения
 
 Пусть:
-- $\mathbf{r}_{LV}, \mathbf{v}_{LV}$ — радиус-вектор и скорость ступени РН;
-- $\mathbf{r}_{SC}, \mathbf{v}_{SC}$ — радиус-вектор и скорость КА;
+- $$\mathbf{r_{LV}}, \mathbf{v_{LV}}$$ — радиус-вектор и скорость ступени РН;
+- $$\mathbf{r_{SC}}, \mathbf{v_{SC}}$$ — радиус-вектор и скорость КА;
 - $m_{LV}, m_{SC}$ — массы РН и КА;
 - $\mu $— гравитационный параметр Земли.
 
@@ -106,14 +106,14 @@ k (L_{free} - L), & L < L_{free} \ \text{и} \ L < L_{end}, \\
 Полный вектор состояния системы имеет вид:
 
 
-$\mathbf{x} =
+$$\mathbf{x} =
 \begin{bmatrix}
-\mathbf{r}_{LV} \\
-\mathbf{v}_{LV} \\
-\mathbf{r}_{SC} \\
+\mathbf{r}_{LV}\\ 
+\mathbf{v}_{LV}\\
+\mathbf{r}_{SC}\\
 \mathbf{v}_{SC}
 \end{bmatrix}
-\in \mathbb{R}^{12}$
+\in \mathbb{R}^{12}$$
 
 
 Соответствующая система дифференциальных уравнений первого порядка интегрируется
@@ -282,11 +282,10 @@ $$\mathbf{r} = \begin{bmatrix}
 \cos \nu \\
 \sin \nu \\
 0
-\end{bmatrix}; 
+\end{bmatrix}; $$
 
-\quad
 
-\mathbf{\theta} =\begin{bmatrix}
+$$\mathbf{\theta} =\begin{bmatrix}
 -\sin \nu \\
 \cos \nu \\
 0
